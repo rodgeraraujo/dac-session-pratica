@@ -1,5 +1,6 @@
 package br.edu.ifpb.playlist;
 
+import br.edu.ifpb.domain.Banda;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -25,7 +26,7 @@ public class Playlist {
         this.bandas.remove(banda);
     }
 
-    public List<String> listarBandas() {
+    public List<Banda> listarBandas() {
         return Collections.unmodifiableList(bandas);
     }
 }
