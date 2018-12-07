@@ -1,31 +1,46 @@
 package br.edu.ifpb.playlist;
 
-import java.util.Collections;
+import br.edu.ifpb.domain.Banda;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import javax.ejb.EJB;
+import javax.ejb.Remote;
 import javax.ejb.Stateful;
+import br.edu.ifpb.domain.playlist.Playlist;
+import java.util.ArrayList;
+import java.util.Collections;
+import javax.ejb.EJB;
+import javax.ejb.Remove;
 
 /**
  *
  * @author fernanda
  */
-
 @Stateful
-public class Playlist {
-    
+@Remote(Playlist.class)
+public class PlaylistBanda implements Playlist {
+  
     @EJB
-    private List<Banda> bandas = new CopyOnWriteArrayList<>();
-    
-    public void novaBanda(Banda banda){
+    private List<Banda> bandas = new ArrayList<>();
+
+    @Override
+    public void adicionar(Banda banda) {
         this.bandas.add(banda);
     }
-    
-    public void removerBanda(Banda banda) {
+
+    @Override
+    public List<Banda> bandas() {
+        return Collections.unmodifiableList(this.bandas);
+    }
+
+    @Override
+    public void remover(Banda banda) {
         this.bandas.remove(banda);
     }
 
-    public List<String> listarBandas() {
-        return Collections.unmodifiableList(bandas);
+    @Remove
+    @Override
+    public void finalizar() {
+        System.out.println("--- Bandas ----");
+        this.bandas.forEach(System.out::println);
     }
+
 }
