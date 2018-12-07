@@ -7,12 +7,12 @@ Amanda - FrontEnd
     -> Controladores de Integrante e Banda
 
 Fernanda - BackEnd
-    -> CRUD de Integrante
+    -> CRUD de Integrante ✔
     -> Manter playlist de bandas (em tempo de execução)
-    -> Recomendação de Banda
+    -> Converter de CPF de Integrante ✔
 
 
 Rafaela - BackEnd
-    -> CRUD de Banda
-    -> Conexão com Banco de Dados
-    -> Converter de CPF de Integrante
+    -> CRUD de Banda ✔
+    -> Conexão com Banco de Dados ✔
+    -> Recomendação de Banda
