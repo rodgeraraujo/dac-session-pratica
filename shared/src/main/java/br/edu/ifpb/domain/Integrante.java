@@ -1,20 +1,20 @@
-package br.edu.ifpb.domain;
-
-
-import java.time.LocalDate;
-import java.util.Objects;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package br.edu.ifpb.domain;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Objects;
 
 /**
  *
  * @author rodger
  */
 public class Integrante {
+    
     private int id;
     private String nome;
     private LocalDate dataDeNascimento;
@@ -104,6 +104,5 @@ public class Integrante {
     public String toString() {
         return "Integrante{" + "id=" + id + ", nome=" + nome + ", dataDeNascimento=" + dataDeNascimento + ", cpf=" + cpf + '}';
     }
-    
     
 }
