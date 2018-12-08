@@ -5,17 +5,19 @@
  */
 package br.edu.ifpb.intefaces;
 
+import br.edu.ifpb.domain.Banda;
 import java.util.List;
 
 /**
  *
- * @author rodger
+ * @author Cliente
  */
-public interface Banda {
-    void adicionar(Banda banda);
+public interface Recomendadas {
 
-    List<Banda> bandas();
+    public void recomendar(Banda banda);
 
-    void remover(Banda banda);
-    
+    public void removerRecomendacao(Banda banda);
+
+    public List<Banda> listarRecomendacao();
+
 }
