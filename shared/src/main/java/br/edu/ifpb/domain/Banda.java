@@ -1,24 +1,34 @@
 package br.edu.ifpb.domain;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author rodger
  */
-public class Banda {
+public class Banda implements Serializable{
     private int id;
     private String nomeFantasia;
     private String localOrigem;
+    private String urlDoPerfil;
 
     public Banda() {
     }
-    
-    public Banda(int id, String nomeFantasia, String localOrigem) {
+
+    public Banda(int id, String nomeFantasia, String localOrigem, String urlDaPerfil) {
         this.id = id;
         this.nomeFantasia = nomeFantasia;
         this.localOrigem = localOrigem;
+        this.urlDoPerfil = urlDaPerfil;
     }
+
+    public Banda(String nomeFantasia, String localOrigem, String urlDaPerfil) {
+        this.nomeFantasia = nomeFantasia;
+        this.localOrigem = localOrigem;
+        this.urlDoPerfil = urlDaPerfil;
+    }
+    
 
     public int getId() {
         return id;
@@ -44,12 +54,21 @@ public class Banda {
         this.localOrigem = localOrigem;
     }
 
+    public String getUrlDoPerfil() {
+        return urlDoPerfil;
+    }
+
+    public void setUrlDoPerfil(String urlDaPerfil) {
+        this.urlDoPerfil = urlDaPerfil;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 37 * hash + this.id;
-        hash = 37 * hash + Objects.hashCode(this.nomeFantasia);
-        hash = 37 * hash + Objects.hashCode(this.localOrigem);
+        hash = 97 * hash + this.id;
+        hash = 97 * hash + Objects.hashCode(this.nomeFantasia);
+        hash = 97 * hash + Objects.hashCode(this.localOrigem);
+        hash = 97 * hash + Objects.hashCode(this.urlDoPerfil);
         return hash;
     }
 
@@ -74,12 +93,16 @@ public class Banda {
         if (!Objects.equals(this.localOrigem, other.localOrigem)) {
             return false;
         }
+        if (!Objects.equals(this.urlDoPerfil, other.urlDoPerfil)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Banda{" + "id=" + id + ", nomeFantasia=" + nomeFantasia + ", "
-                + "localOrigem=" + localOrigem + '}';
-    } 
+        return "Banda{" + "id=" + id + ", nomeFantasia=" + nomeFantasia + ", localOrigem="
+                + localOrigem + ", urlDaPerfil=" + urlDoPerfil + '}';
+    }
+
 }

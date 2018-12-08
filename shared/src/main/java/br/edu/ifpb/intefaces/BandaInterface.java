@@ -1,5 +1,6 @@
 package br.edu.ifpb.intefaces;
 
+import br.edu.ifpb.domain.Banda;
 import java.util.List;
 
 /**
@@ -8,12 +9,13 @@ import java.util.List;
  */
 public interface BandaInterface {
     
-    boolean salvar(BandaInterface banda);
-    
-    boolean deletar(int id);
-    
-    boolean atualizar(BandaInterface banda);
-    
-    List<BandaInterface> todasAsBandas();
-    
+    boolean adicionar(Banda banda);
+
+    List<Banda> bandas();
+
+    Banda buscar(int id);
+
+    boolean atualizar(Banda banda);
+
+    boolean remover(Banda banda);
 }
