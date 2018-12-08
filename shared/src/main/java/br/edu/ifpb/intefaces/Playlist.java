@@ -1,4 +1,4 @@
-package br.edu.ifpb.domain.playlist;
+package br.edu.ifpb.intefaces;
 
 import br.edu.ifpb.domain.Banda;
 import java.util.List;

@@ -4,7 +4,7 @@ import br.edu.ifpb.domain.Banda;
 import java.util.List;
 import javax.ejb.Remote;
 import javax.ejb.Stateful;
-import br.edu.ifpb.domain.playlist.Playlist;
+import br.edu.ifpb.intefaces.Playlist;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.ejb.EJB;
