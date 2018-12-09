@@ -48,9 +48,10 @@ public class ControladorRecomendados {
      public String SelecionarDestaque(Banda banda){
         return "bandaDestaque?faces-redirect=true&id="+banda.getId();
     }
-public String BandaDestaque(){
-    this.bandaIF.buscar(banda.getId());
-    return null;
+     
+    public String BandaDestaque(){
+        this.bandaIF.buscar(banda.getId());
+        return null;
     }
 
     public Banda getBanda() {
