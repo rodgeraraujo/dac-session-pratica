@@ -27,8 +27,7 @@ public class Banda implements Serializable{
         this.nomeFantasia = nomeFantasia;
         this.localOrigem = localOrigem;
         this.urlDoPerfil = urlDaPerfil;
-    }
-    
+    }    
 
     public int getId() {
         return id;

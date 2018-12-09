@@ -1,5 +1,6 @@
 package br.edu.ifpb.intefaces;
 
+import br.edu.ifpb.domain.Integrante;
 import java.util.List;
 
 /**
@@ -8,12 +9,12 @@ import java.util.List;
  */
 public interface IntegranteInterface {
     
-    boolean salvar(IntegranteInterface Integrantes);
+    boolean salvar(Integrante Integrantes);
     
     boolean deletar(int id);
     
-    boolean atualizar(IntegranteInterface Integrante);
+    boolean atualizar(Integrante Integrante);
     
-    List<IntegranteInterface> listarIntegrantes();
+    List<Integrante> listarIntegrantes();
     
 }
