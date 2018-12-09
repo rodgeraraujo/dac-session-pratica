@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+    </h:head>
+    <h:body>
+        <div id="modal-cadastrar-integrante" class="none">
+            <p class="title is-4">Cadastro de Integrantes</p>
+            <h:form>
+                <div class="field">
+                    <label class="label has-text-weight-normal">Nome</label>
+                    <div class="control">
+                        <h:inputText  class="input" value="#{controladorDeIntegrante.integrante.nome}"/>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label has-text-weight-normal">Cpf</label>
+                    <div class="control">
+                        <h:inputText  class="input" converter ="converter.CPF" value="#{controladorDeIntegrante.integrante.cpf}"/>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="columns">
+                        <div class="column">
+                            <label class="label has-text-weight- ">Data de nascimento </label>
+                            <div class="control">
+                                <h:inputText class="input" a:type="date"  value="#{controladorDeIntegrante.integrante.dataDeNascimento}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <h:commandButton class="button is-success is-fullwidth" value="Cadastrar" action="#{controladorDeIntegrante.salvar()}"/>
+            </h:form>
+        </div>
+    </h:body>  
+</html>

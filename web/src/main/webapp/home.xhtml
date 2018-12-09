@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Atividade SessionBeans</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="css/bulma.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+        <link rel="stylesheet" href="css/style.css"/>
+    </h:head>
+    <h:body>
+        <div class="columns">
+            <div class="column">
+                <section class="header hero is-dark is-bold m-1">
+                    <div class="hero-head">
+                        <div class="tabs is-centered">
+                            <ul>
+                                <li id="banda"><a>Bandas</a></li>
+                                <li><a href="#modal-cadastrar-banda" rel="modal:open">Cadastrar</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <div class="container">
+                    <div class="r-banda block">
+                        <div class="tile is-ancestor">
+                            <ui:repeat var="banda" value="#{controladorDeBanda.listar()}">
+                                <div class="tile is-parent is-3">
+                                    <article class="tile is-child box">
+                                        <p class="title is-4">#{banda.nomeFantasia} <h:commandButton action="#{controladorPlaylist.adicionar(banda)}" value="+"/></p>
+                                        <p>#{banda.localOrigem}</p>
+                                        <p>Integrantes: </p>
+                                        <ui:repeat var="integrante" value="#{controladorDeIntegrante.listar()}">
+                                            <p>#{integrante.nome}</p>
+                                        </ui:repeat>
+                                        <br/>
+
+                                        <div class="columns">
+                                            <div class="column has-text-centered">
+                                                <a href="#modal-banda-#{banda.id}" class="button is-success" rel="modal:open">Atualizar</a>
+                                            </div>
+                                            <div class="column has-text-centered">     
+                                                <h:commandLink class="button is-danger" action="#{controladorDeBanda.remover(banda)}" value="Remover"/>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <div id="modal-banda-#{banda.id}" class="modal">
+                                    <p class="title is-4">Atualizar #{banda.nomeFantasia}</p>
+                                    <h:form>
+                                        <h:inputHidden value="#{banda.id}"/>
+                                        <div class="field">
+                                            <label class="label has-text-weight-normal">Nome</label>
+                                            <div class="control">
+                                                <h:inputText class="input" value="#{banda.nomeFantasia}"/>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <label class="label has-text-weight-normal">Local de origem</label>
+                                            <div class="control">
+                                                <h:inputText class="input" value="#{banda.localOrigem}"/>
+                                            </div>
+                                        </div>
+                                        <h:commandButton class="button is-success is-fullwidth" value="Atualizar" action="#{controladorDeBanda.atualizar()}"/>
+                                    </h:form>
+                                </div>
+                            </ui:repeat>
+
+                        </div>
+                    </div>
+                    <ui:include src="cadastroBanda.xhtml"/>
+                </div>
+            </div>
+            
+            <div class="column is-2">
+                <p class="subtitle">Playlist</p>
+                <ui:repeat var="banda" value="#{controladorPlaylist.listar()}">
+                    <p>#{banda.nome} <h:commandButton action="#{controladorPlaylist.remover(banda)}" value="-"/></p>
+                </ui:repeat>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    </h:body>
+</html>
+

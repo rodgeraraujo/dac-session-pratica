@@ -22,8 +22,11 @@ public class Integrante {
 
     public Integrante() {
     }
-    
 
+    public Integrante(String nome) {
+        this.nome = nome;
+    }
+    
     public Integrante(int id, String nome, LocalDate dataDeNascimento) {
         this.id = id;
         this.nome = nome;

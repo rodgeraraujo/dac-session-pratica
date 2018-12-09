@@ -1,24 +1,20 @@
 package br.edu.ifpb.converter;
 
-import br.edu.ifpb.domain.Integrante;
+import br.edu.ifpb.domain.CPF;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-/**
- *
- * @author rodger
- */
-@FacesConverter(value = "IntegranteConverter")
-public class IntegranteConverter implements Converter{
+@FacesConverter("converter.CPF")
+public class CPFConverter implements Converter{
 
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
-       if (value == null) {
+        if (value == null) {
             return null;
         }
-        return new Integrante(value);
+        return new CPF(value);
     }
 
     @Override
@@ -26,8 +22,8 @@ public class IntegranteConverter implements Converter{
         if (value == null) {
             return null;
         }
-        Integrante integrante = (Integrante) value;
-        return integrante.getNome();
+        CPF cpf = (CPF) value;
+        return cpf.numero();
     }
     
 }

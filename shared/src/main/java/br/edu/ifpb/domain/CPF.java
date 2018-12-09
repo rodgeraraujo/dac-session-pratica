@@ -4,7 +4,7 @@ package br.edu.ifpb.domain;
  *
  * @author rodger
  */
-class CPF {
+public class CPF {
     
     private String numero;
     

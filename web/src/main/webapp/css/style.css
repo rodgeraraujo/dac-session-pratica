@@ -1,0 +1,37 @@
+.none{display:none}
+
+.hero.background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../img/Band-Bio-Background.jpg');
+    background-size: cover; 
+    z-index: 1 !important;
+}
+
+.hero.overlay{
+    position: relative;
+    background: rgb(227,104,88);
+    background: linear-gradient(180deg, rgba(227,104,88,0.5) 0%, rgba(163,72,238,0.5) 60%, rgba(115,106,233,0.5) 100%);
+    z-index: 10;
+}
+
+.hero{
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 2px 0px;
+}
+
+.column.has-vertically-aligned-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.jquery-modal{
+    z-index: 50;
+}
+
+.m-1{
+    margin-bottom: 1rem;
+}

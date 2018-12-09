@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Atividade SessionBeans</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="css/bulma.css"/>
+        <link rel="stylesheet" href="css/bulma-divider.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+        <link rel="stylesheet" href="css/style.css"/>
+    </h:head>
+    <h:body>
+        <section class="hero is-fullheight background"></section>
+        <section class="hero is-fullheight overlay">           
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <div class="columns">
+                        <div class="column"></div>
+                        <div class="column is-3 has-vertically-aligned-content">
+                            <p>
+                                <a href="#modal-cadastrar-banda" class="button button is-primary is-inverted is-outlined is-medium m-1" rel="modal:open">Cadastrar Banda</a>
+                            </p>
+                            <br/>
+                            <p>
+                                <a href="#modal-cadastrar-integrante" class=" button is-primary is-inverted is-outlined is-medium" rel="modal:open">Cadastrar Integrantes</a>
+                            </p>
+                        </div>
+                        <div class="is-divider-vertical" data-content="OR"></div>
+                        <div class="column is-3 has-vertically-aligned-content">
+                            <p>
+                                <a class="button is-primary is-inverted is-outlined is-medium" href="home.xhtml">Entrar</a>
+                            </p> 
+                        </div>
+                        <div class="column"></div>
+                    </div>     
+                </div>
+            </div>  
+        </section>
+        <div class="header">
+            <ui:include src="cadastroBanda.xhtml"></ui:include>
+            <ui:include src="cadastroIntegrantes.xhtml"></ui:include>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    </h:body>
+</html>
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+    <h:head>
+    </h:head>
+    <h:body>
+        <div id="modal-cadastrar-banda" class="none">
+            <p class="title is-4">Cadastro de Banda</p>
+            <h:form>
+                <div class="field">
+                    <label class="label has-text-weight-normal">Nome</label>
+                    <div class="control">
+                        <h:inputText  class="input" value="#{controladorDeBanda.banda.nomeFantasia}"/>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="columns">
+                        <div class="column">
+                            <label class="label has-text-weight-normal">Local de Origem </label>
+                            <div class="control">
+                                <h:inputText class="input" value="#{controladorDeBanda.banda.localOrigem}"/>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <label class="label has-text-weight-normal">Foto </label>
+                            <div class="control">
+                                <h:inputText class="input" value="#{controladorDeBanda.banda.urlDoPerfil}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <h:commandButton class="button is-success is-fullwidth" value="Cadastrar" action="#{bandaController.salvar()}"/>
+            </h:form>
+        </div>
+    </h:body>
+</html>
