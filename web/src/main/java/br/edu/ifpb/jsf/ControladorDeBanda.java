@@ -1,8 +1,9 @@
 package br.edu.ifpb.jsf;
 
-import br.edu.ifpb.intefaces.BandaInterface;
 import br.edu.ifpb.domain.Banda;
+import br.edu.ifpb.intefaces.BandaInterface;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
@@ -16,36 +17,30 @@ import javax.inject.Named;
 public class ControladorDeBanda implements Serializable {
     
     @EJB
-    BandaInterface bandaIF;
+    private BandaInterface bandaIF;
+    private Banda banda;
     
-    Banda banda;
-
-    public BandaInterface getBandaIF() {
-        return bandaIF;
+    public List<Banda> listar(){
+        return this.bandaIF.bandas();
     }
     
     public String salvar(){
-        this.bandaIF.adicionar(banda);
-        return null;
-    }
-
-    public String remover(){
-        this.bandaIF.remover(banda);
+        this.bandaIF.adicionar(this.banda);
         return null;
     }
     
     public String atualizar(){
-        this.bandaIF.atualizar(banda);
+        this.bandaIF.atualizar(this.banda);
         return null;
     }
     
-    public String listar(){
-        this.bandaIF.bandas();
+    public String deletar(){
+        this.bandaIF.remover(this.banda);
         return null;
     }
-    
-    public String buscar(Banda banda){
-        this.bandaIF.buscar(banda.getId());
+        
+    public String buscar(){
+        this.bandaIF.buscar(this.banda.getId());
         return null;
     }
     
@@ -56,5 +51,5 @@ public class ControladorDeBanda implements Serializable {
     public void setBanda(Banda banda) {
         this.banda = banda;
     }
-    
+      
 }

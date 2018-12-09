@@ -8,30 +8,19 @@ import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
+/**
+ *
+ * @author rodger
+ */
 @Named
 @SessionScoped
-public class ControladorDeIntegrante implements Serializable {
-
-    //@EJB
-    IntegranteInterface integranteIF;
+//@RequestScoped
+public class ControladorDeIntegrante implements Serializable{
     
-    Integrante integrante;
-
-    public String deletar() {
-        this.integranteIF.deletar(integrante.getId());
-        return null;
-    }
-
-    public String remover() {
-        this.integranteIF.atualizar(integrante);
-        return null;
-    }
-
-    public List<Integrante> atualizar() {
-        this.integranteIF.listarIntegrantes();
-        return null;
-    }
-
+    @EJB
+    IntegranteInterface integranteIF;
+    Integrante integrante; 
+    
     public Integrante getIntegrante() {
         return integrante;
     }
@@ -39,5 +28,25 @@ public class ControladorDeIntegrante implements Serializable {
     public void setIntegrante(Integrante integrante) {
         this.integrante = integrante;
     }
-
+        
+    public List<Integrante> listar(){        
+        this.integranteIF.listarIntegrantes();        
+        return null;
+    }
+    
+    public String salvar(){        
+        this.integranteIF.salvar(integrante);        
+        return null;
+    }
+    
+    public String atualizar(){
+        this.integranteIF.atualizar(integrante);
+        return null;   
+    }
+    
+    public String deletar(){
+        this.integranteIF.deletar(integrante.getId());        
+        return null;
+    }
+    
 }
