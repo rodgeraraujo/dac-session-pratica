@@ -17,7 +17,7 @@
                     <div class="hero-head">
                         <div class="tabs is-centered">
                             <ul>
-                                <li id="banda"><a>Bandas</a></li>
+                                <li><a href="home.xhtml">Bandas</a></li>
                                 <li><a href="recomendacoes.xhtml">Recomendações</a></li>
                                 <li><a href="index.xhtml">Cadastrar</a></li>
                             </ul>
@@ -27,7 +27,7 @@
                 <div class="container">
                     <div class="r-banda block">
                         <div class="tile is-ancestor">
-                            <ui:repeat var="banda" value="#{controladorDeBanda.listar()}">
+                            <ui:repeat var="banda" value="#{controladorRecomendados.recomendadas()}">
                                 <div class="tile is-parent is-3">
                                     <article class="tile is-child box">
                                         <p class="title is-4">#{banda.nomeFantasia} <h:commandLink  action="#{controladorPlaylist.adicionar(banda)}" value="+"/></p>
@@ -37,39 +37,9 @@
                                             <p>#{integrante.nome}</p>
                                         </ui:repeat>
                                         <br/>
-
-                                        <div class="columns">
-                                            <div class="column has-text-centered">
-                                                <a href="#modal-banda-#{banda.id}" class="button is-success" rel="modal:open">Atualizar</a>
-                                            </div>
-                                            <div class="column has-text-centered">     
-                                                <h:commandLink class="button is-danger" action="#{controladorDeBanda.remover(banda)}" value="Remover"/>
-                                            </div>
-                                        </div>
                                     </article>
                                 </div>
-
-                                <div id="modal-banda-#{banda.id}" class="modal">
-                                    <p class="title is-4">Atualizar #{banda.nomeFantasia}</p>
-                                    <h:form>
-                                        <h:inputHidden value="#{banda.id}"/>
-                                        <div class="field">
-                                            <label class="label has-text-weight-normal">Nome</label>
-                                            <div class="control">
-                                                <h:inputText class="input" value="#{banda.nomeFantasia}"/>
-                                            </div>
-                                        </div>
-                                        <div class="field">
-                                            <label class="label has-text-weight-normal">Local de origem</label>
-                                            <div class="control">
-                                                <h:inputText class="input" value="#{banda.localOrigem}"/>
-                                            </div>
-                                        </div>
-                                        <h:commandButton class="button is-success is-fullwidth" value="Atualizar" action="#{controladorDeBanda.atualizar()}"/>
-                                    </h:form>
-                                </div>
                             </ui:repeat>
-
                         </div>
                     </div>
                 </div>
