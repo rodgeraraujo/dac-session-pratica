@@ -8619,13 +8619,13 @@ label.panel-block:hover {
 
 .columns.is-variable {
   --columnGap: 0.75rem;
-  margin-left: calc(-1 * var(--columnGap));
-  margin-right: calc(-1 * var(--columnGap));
+/*  margin-left: calc(-1 * var(--columnGap));
+  margin-right: calc(-1 * var(--columnGap));*/
 }
 
 .columns.is-variable .column {
-  padding-left: var(--columnGap);
-  padding-right: var(--columnGap);
+/*  padding-left: var(--columnGap);
+  padding-right: var(--columnGap);*/
 }
 
 .columns.is-variable.is-0 {
